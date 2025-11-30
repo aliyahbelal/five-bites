@@ -1,6 +1,9 @@
 {
+  
   "php.executables": {
     "php8.5": "C:\\tools\\php85\\php.exe"
   },
-  "php.validate.executablePath": "C:\\tools\\php85\\php.exe"
+  "php.validate.executablePath": "C:\\tools\\php85\\php.exe",
+  "php.executablePath": "C:\\tools\\php85\\php.exe"
+  ,"php.version": "php8.5"
 }
