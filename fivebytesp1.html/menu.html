@@ -3,55 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <title>FIVE BITES-Menu</title>
 </head>
+
 <body>
 
+    <!-- Header & Navigation -->
     <header>
         <div>
-            
+            <a href="index.html" class="logo">🍔 FIVE BITES</a>
         </div>
-    <nav>
-        <ul class="menu-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#burgers">Burgers</a></li>
-        <li><a href="#toppings">Toppings</a></li>
-        <li><a href="#desserts">Desserts</a></li>
-        <li><a href="#drinks">Drinks</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul class="menu-nav">
+            <li><a href="#burgers">Burgers</a></li>
+            <li><a href="#toppings">Toppings</a></li>
+            <li><a href="#desserts">Desserts</a></li>
+            <li><a href="#drinks">Drinks</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <section class="menu_section" id="menu"> 
-            <div> 
-                <h2>Our Menu</h2>
-                <p>Discover our delicious offerings!</p>
-            </div>
-            <div class="burgers-menu" id="burgers">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop" alt="Classic Beef Burger">
-                    <h3>Classic Beef Burger</h3>
-                    <p>100% beef, cheddar, lettuce, tomato</p>
-                    <div class="price">$8.99</div>
-                </div>
+        <section id="menu"> 
+            <h2>Our Menu</h2>
+            <h3>Discover our delicious offerings!</h3>
 
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1606755962772-3f2f0a2a7a2b?q=80&w=400&auto=format&fit=crop" alt="Spicy Chicken Burger">
-                    <h3>Spicy Chicken Burger</h3>
-                    <p>Crispy chicken, spicy mayo, pickles</p>
-                    <div class="price">$7.99</div>
-                </div>
-
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop" alt="Double Cheese Burger">
-                    <h3>Double Cheese Burger</h3>
-                    <p>Two patties, double cheese, special sauce</p>
-                    <div class="price">$10.99</div>
+        <!-- Burgers Section -->
+        <div class="burgers-menu" id="burgers">
+            <h2>Burgers</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop" alt="Meat Burger">
+                        <h3>Meat Burger</h3>
+                        <p>Juicy beef patty with fresh veggies and sauce.</p>
+                        <p class="price">$8.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="chicken.jpeg" alt="Chicken Burger">
+                        <h3>Chicken Burger</h3>
+                        <p>Grilled chicken breast with lettuce and mayo.</p>
+                        <p class="price">$7.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop" alt="Cheese Burger">
+                        <h3>Cheese Burger</h3>
+                        <p>Classic beef burger topped with melted cheese.</p>
+                        <p class="price">$9.49</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="combo.jpg" alt="Combo Burger">
+                        <h3>Combo Burger</h3>
+                        <p>A mix of beef and chicken patties with double cheese.</p>
+                        <p class="price">$10.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
                 </div>
             </div>
-        </section>
+        <!-- Toppings Section -->
+        <div class="toppings-menu" id="toppings">
+            <h2>Toppings</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="friedfries.jpg" alt="Fried Fries">
+                        <h3>Fried Fries</h3>
+                        <p>Crispy golden fries served hot.</p>
+                        <p class="price">$3.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="cheesefries.jpg" alt="Cheese Fries">
+                        <h3>Cheese Fries</h3>
+                        <p>Fries topped with melted cheddar cheese.</p>
+                        <p class="price">$4.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://mybackyard.ca/wp-content/uploads/2023/04/tomatoes-dry.jpg" alt="Tomatoes">
+                        <h3>Tomatoes</h3>
+                        <p>Freshly sliced tomatoes to add flavor.</p>
+                        <p class="price">$1.49</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.kuA7wW-e-Fjzy91o5SJAUQHaFj?w=1280&h=960&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Lettuce">
+                        <h3>Lettuce</h3>
+                        <p>Crunchy lettuce leaves for a refreshing bite.</p>
+                        <p class="price">$1.29</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Desserts Section -->
+        <div class="desserts-menu" id="desserts">
+            <h2>Desserts</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="https://eviltwin.kitchen/wp-content/uploads/2016/06/Wicked-Windmill-Chocolate-Cake-30.jpg" alt="Chocolate Cake">
+                        <h3>Chocolate Cake</h3>
+                        <p>Rich and moist chocolate cake slice.</p>
+                        <p class="price">$5.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://i2.wp.com/www.livewellbakeoften.com/wp-content/uploads/2017/01/Molten-Chocolate-Lava-Cakes-for-Two-4.jpg?fit=1360%2C1360&ssl=1" alt="Molten Cake">
+                        <h3>Molten Cake</h3>
+                        <p>Warm cake with gooey chocolate center.</p>
+                        <p class="price">$6.49</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://img.freepik.com/premium-photo/ice-cream-scoops-bowl_1090040-423.jpg" alt="Ice Cream">
+                        <h3>Ice Cream</h3>
+                        <p>Vanilla, chocolate, or strawberry scoops.</p>
+                        <p class="price">$3.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://img.freepik.com/premium-photo/new-york-cheesecake_1230717-130402.jpg" alt="Cheese Cake">
+                        <h3>Cheese Cake</h3>
+                        <p>Creamy cheesecake with a buttery crust.</p>
+                        <p class="price">$5.49</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Drinks Section -->
+        <div class="drinks-menu" id="drinks">
+        <h2>Drinks</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="https://i.pinimg.com/736x/6e/3d/89/6e3d89066610d7153a97d0f3249e356f.jpg" alt="Ice Coffee">
+                        <h3>Ice Coffee</h3>
+                        <p>Refreshing cold brew with ice.</p>
+                        <p class="price">$2.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://thebigmansworld.com/wp-content/uploads/2024/06/protein-milkshakes-768x1152.jpg" alt="Milk Shake">
+                        <h3>Milk Shake</h3>
+                        <p>Thick and creamy milkshake in various flavors.</p>
+                        <p class="price">$4.49</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://www.nycbariatrics.com/wp-content/uploads/2024/11/caffeinated-and-carbonated-beverages-1024x576.jpg" alt="Cola">
+                        <h3>Cola</h3>
+                        <p>Classic fizzy cola served chilled.</p>
+                        <p class="price">$1.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Cart Section -->
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+    </section>
+    </section>
     </main>    
+
+    <!-- ربط ملف JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
+
+
