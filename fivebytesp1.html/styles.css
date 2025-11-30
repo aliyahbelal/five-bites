@@ -367,3 +367,31 @@
     box-shadow: 0 10px 25px rgba(16,16,16,0.1);
 
 }
+
+/* ola */
+
+.title{
+    text-align: center;
+    margin: 20px;
+    font-size: 32px;
+    color: bisque;}
+    #gallery .img-gallery{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #gallery .img-gallery img{
+        margin:20px;
+        width: 280px;
+        height: 200;
+        opacity: 0.8;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+     .gallery-container img:hover{
+        transform: scale(1.05);
+        opacity: 1;
+     }
+
