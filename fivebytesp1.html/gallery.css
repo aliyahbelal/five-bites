@@ -1,7 +1,10 @@
-body{font-family: Arial, Helvetica, sans-serif;
-margin: 0;
-padding: 20px;
-text-align: center;}
+body{
+        background-color: rgba(253, 88, 5, 0.75);
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;}
 
 .title{
     text-align: center;
@@ -27,3 +30,21 @@ text-align: center;}
         transform: scale(1.05);
         opacity: 1;
      }
+        a.gallery{
+            text-decoration: none;
+            color: rgba(253, 88, 5, 0.75);
+
+        }
+        a.gallery:hover{
+            color: brown;
+        }
+    
+    section#gallery{
+        background-color: #0c0c0c;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top: 30px;
+    }
+    
+    

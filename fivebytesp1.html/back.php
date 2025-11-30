@@ -1,37 +1,22 @@
 <?php
-/**
- * Database Connection Script using PDO
- * Filename: db_connect.php
- */
+// back.php - return menu items as JSON
+// This file expects a separate db_connect.php that creates a $pdo PDO instance.
+// Ensure db_connect.php is present in the same directory and defines DB_* constants and $pdo.
 
-// 1. Define Database Credentials
-// *** IMPORTANT: You must replace these placeholder values with your actual database host, name, username, and password. ***
-define('DB_HOST', 'localhost'); // Usually 'localhost'
-define('DB_NAME', 'FiveDB'); // Based on your SQL file
-define('DB_USER', 'your_db_user'); // Your MySQL username
-define('DB_PASS', 'your_strong_password'); // Your MySQL password
+require_once 'db_connect.php';
 
-// 2. Define DSN (Data Source Name)
-$dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
+header('Content-Type: application/json');
 
-// 3. Define PDO options for robust connection
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Throw exceptions on errors
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,     // Default fetch mode to associative array
-    PDO::ATTR_EMULATE_PREPARES   => false,                // Disable emulation for better security
-];
-
-// 4. Attempt to connect to the database
 try {
-     // Create the PDO instance
-    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-    // echo "Successfully connected to the database!"; // Optional: for testing
-} catch (\PDOException $e) {
-    // Handle connection errors securely
-    // In a production environment, you would log the detailed error and show a generic message to the user.
-    error_log("Database Connection Error: " . $e->getMessage());
-    die('Database connection failed. Please try again later.');
-}
+    // Prepare and execute the SQL statement
+    $stmt = $pdo->query("SELECT menuitem_ID, Name, Price, Description FROM menuitem");
+    $menu_items = $stmt->fetchAll();
 
-// $pdo variable now holds the database connection object.
-// You can use it in other PHP files (after including this one).
+    // Return the data as JSON
+    echo json_encode(['success' => true, 'data' => $menu_items]);
+} catch (PDOException $e) {
+    // Log detailed error server-side and return a generic error message to the client
+    error_log("SQL Error: " . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['success' => false, 'error' => 'Internal server error']);
+}
