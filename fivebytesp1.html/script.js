@@ -1,3 +1,65 @@
+// page 2 shahd//
+// Array to store cart items
+let cart = [];
+
+// Select all "Add to Cart" buttons
+const buttons = document.querySelectorAll('.add-to-cart');
+const cartList = document.getElementById('cart-items');
+
+// Attach click event to each button
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+    const item = button.parentElement;
+    const name = item.querySelector('h3').innerText;
+    const price = parseFloat(item.querySelector('.price').innerText.replace('$',''));
+
+    // Add item to cart
+    cart.push({ name, price });
+
+    // Re-render cart
+    renderCart();
+    });
+});
+
+// Function to render cart items
+function renderCart() {
+    cartList.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((product, index) => {
+    total += product.price;
+
+    const li = document.createElement('li');
+    li.textContent = `${product.name} - $${product.price.toFixed(2)}`;
+
+    // Add a remove button for each item
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.style.marginLeft = '10px';
+    removeBtn.onclick = () => {
+        cart.splice(index, 1);
+        renderCart();
+    };
+
+    li.appendChild(removeBtn);
+    cartList.appendChild(li);
+    });
+
+  // Show total at the bottom
+    const totalLi = document.createElement('li');
+    totalLi.textContent = `Total: $${total.toFixed(2)}`;
+    totalLi.style.fontWeight = 'bold';
+    cartList.appendChild(totalLi);
+}
+
+
+// page 3 Sherrien//
+
+
+
+
+
+
 // Simple interactive JavaScript for Five Bites (with multilingual support)
 document.addEventListener("DOMContentLoaded", () => {
   // Elements
