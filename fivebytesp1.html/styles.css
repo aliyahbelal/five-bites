@@ -165,6 +165,12 @@
     color:orange;
     font-size:24px;
 }
+.menu-nav {
+    padding: 10px 5;
+    text-align: center;
+    color: #FEFFDB;
+    font-weight: 600;
+}
 #menu h5 {
     font-size: 36px;
     color: #583609;
@@ -298,6 +304,8 @@ button.add.order:hover {
 button.add.order:active {
     transform: translateY(0);
 }
+
+
 
 
 /* ola */
