@@ -1,2 +1,3 @@
-SELECT * FROM menuitem WHERE Name = 'classic burger';
-SELECT * FROM menuitem WHERE Price < 5.00;
+SELECT * FROM menuitem ;
+SELECT * FROM orders ;
+SELECT * FROM customer;

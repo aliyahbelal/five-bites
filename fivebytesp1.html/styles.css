@@ -336,3 +336,60 @@ button.add.order:active {
         transform: scale(1.05);
         opacity: 1;
      }
+
+     #checkout{
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: 30px auto;
+     }
+        #checkout h2{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #583609;
+        }
+        #checkout label{
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        #checkout input[type="text"],
+        #checkout input[type="email"],
+        #checkout input[type="tel"]{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #checkout button{
+            width: 100%;
+            padding: 12px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #checkout button:hover{
+            background-color: #d66224;
+        }
+        #checkout-button{
+            width: 100%;
+            margin-top: 20px;
+            background-color: #d66224;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            align-self: start;
+        }
+        #checkout-button:hover{
+            background-color: #141414;
+        }

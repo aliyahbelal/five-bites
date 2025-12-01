@@ -87,6 +87,77 @@ function displayOrder() {
         const info = document.createElement('span');
         info.textContent = `${item.name} - $${item.price} x${item.quantity} = $${itemTotal.toFixed(2)}`;
 
+        // --- Code to add to your scripts.js ---
+
+function setupCartListeners() {
+    // Select all buttons with the class 'add-to-cart-button'
+    const cartButtons = document.querySelectorAll('.add-to-cart-button');
+
+    cartButtons.forEach(button => {
+        button.addEventListener('click', async (event) => {
+            // Get the item ID from the button's data-id attribute
+            const menuitemId = event.currentTarget.dataset.id; 
+            const quantity = 1; // Assuming you add 1 item per click
+
+            if (!menuitemId) {
+                console.error("Error: Missing menu item ID on button.");
+                alert("Cannot add item. Missing ID.");
+                return;
+            }
+
+            try {
+                // Send the data to the PHP script
+                const response = await fetch('add_to_cart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        'menuitemId': menuitemId,
+                        'quantity': quantity
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success! Provide feedback to the user
+                    alert('✅ Success! "' + menuitemId + '" added to cart.');
+                } else {
+                    // Failure! Show error message
+                    alert('❌ Error adding item: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Network or parsing error:', error);
+                alert('A network error occurred. Check your server logs.');
+            }
+        });
+    });
+}
+
+  document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get values directly from input fields
+            const fullName = document.getElementById('full-name').value || 'Customer';
+            const email = document.getElementById('email').value || 'your@email.com';
+            const address = document.getElementById('address').value || 'your provided address';
+            
+            console.log('Checkout simulation completed.');
+            
+            // Display success message in the UI (replacement for alert/confirm)
+            const checkoutDiv = document.getElementById('checkout');
+            checkoutDiv.innerHTML = `
+                <div class="text-center p-6">
+                    <h2 class="text-3xl text-green-600 font-extrabold mb-4">Order Placed!</h2>
+                    <p class="text-lg text-gray-700">Thank you for your order, <strong>${fullName}</strong>!</p>
+                    <p class="text-sm text-gray-500 mt-4">We will send a confirmation to ${email}.</p>
+                    <p class="text-sm text-gray-500 mt-2">Delivery is heading to: ${address}.</p>
+                    <a href="menu.html" class="inline-block mt-6 px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600 transition">Return to Menu</a>
+                </div>
+            `;
+        });
+
         // Remove button
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Remove';
@@ -385,4 +456,4 @@ function calculateTotal() {
         });
     }
     // #endregion
-});
+;
