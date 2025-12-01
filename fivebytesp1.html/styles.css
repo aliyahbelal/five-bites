@@ -161,204 +161,45 @@
             }
         }
 
+/* shahd */
 /* Menu item styles */
 .logo {
     color:orange;
     font-size:24px;
 }
-
-.burgers-menu .menu-item {
-    background: #ffffff;
+.menu-nav {
+    padding: 10px 5;
+    text-align: center;
+    color: #FEFFDB;
+    font-weight: 600;
+}
+#menu h5 {
+    font-size: 36px;
+    color: #583609;
+    text-align: center;
+    text-transform: uppercase;
+}
+#menu h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333333;
+    text-align: center;
+    background-color: #bd6208;
+}
+#menu h4 {
+    background-color:#bd6208c8;
+    font-size: 40px;
+    margin-bottom: 35x;
+    padding: 10px;
+    color: #555555;
+    text-align: center;
+}
+.menu-item {
+    background: #bd6208;
     border: 1px solid #eeeeee;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(16,16,16,0.04);
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    text-align: center;
-    transition: box-shadow 0.3s;
-}
-.burgers-menu .menu-item img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-}
-.burgers-menu .menu-item h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: #222222;
-}
-.burgers-menu .menu-item p {
-    font-size: 14px;
-    color: #666666;
-    margin-bottom: 12px;
-}
-.burgers-menu .menu-item .price {
-    padding: 12px 14px;
-    background: #fafafa;
-    border-top: 1px solid #f0f0f0;
-    font-weight: 700;
-    color: #e94f37;
-    font-size: 16px;
-    text-align: right;
-}
-.burgers-menu .menu-item:hover {
-    box-shadow: 0 10px 25px rgba(16,16,16,0.1);
-}
-@media (max-width: 480px) {
-    .burgers-menu .menu-item img { height: 140px; }
-}
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem; /* مسافة بين العناصر */
-}
-
-.menu-item {
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.menu-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-}
-.add-to-cart {
-    background: #e94f37;
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.add-to-cart:hover {
-    background: #c63c2c;
-}
-#cart {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 30px;
-}
-#cart h2 {
-    margin-top: 0;
-    color: #333;
-}
-#cart ul {
-    list-style: none;
-    padding: 0;
-}
-#cart ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-#cart ul li:last-child {
-    border-bottom: none;    
-}
-#cart .total {
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: right;
-    color: #e94f37;
-}
-        .burger-item, .topping-item, .dessert-item {
-            background: #f9f9f9;
-            border: 1px solid #1a1919;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: box-shadow 0.3s;
-        }
-
-#menu { 
-    background-color: black;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-        
-
-
-      
-
-
-
-
-       
-
-        
-
-
-
-
-
-
-
-       
-
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-/* Menu item styles */
-.burgers-menu {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 20px;
-}
-
-.burgers-menu .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-}
-
-.menu-item {
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(16,16,16,0.04);
+    overflow: shadow;
+    box-shadow: 10 6px 18px rgba(16,16,16,0.04);
     display: flex;
     flex-direction: column;
 }
@@ -398,8 +239,76 @@
 }
 .menu-item:hover {
     box-shadow: 0 10px 25px rgba(16,16,16,0.1);
-
+    transform: translateY(-5px);
+    transition: all 0.2s ease;
 }
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; /* مسافة بين العناصر */
+}
+
+.menu-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+.menu-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+.add-order:hover {
+    background: #c63c2c;
+}
+#order {
+    background:#fbfafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+}
+#order h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #583609;
+}
+
+/* Order now button styling */
+button.add.order {
+    background: orange ;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+button.add.order:hover {
+    background: #d66224;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(233, 79, 55, 0.3);
+}
+
+button.add.order:active {
+    transform: translateY(0);
+}
+
+
+
 
 /* ola */
 

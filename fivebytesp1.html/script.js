@@ -1,50 +1,124 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // #region: Page 2 (Shahd) - Cart Functionality
-    const cart = [];
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    const cartList = document.getElementById('cart-items');
+// shahd
+// Simple Order Management
+let order = [];
 
-    if (addToCartButtons.length > 0 && cartList) {
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                const name = item.querySelector('h3').innerText;
-                const price = parseFloat(item.querySelector('.price').innerText.replace('$', ''));
+// Get DOM elements
+const orderItemsDiv = document.getElementById('order-items');
+const totalPriceEl = document.getElementById('total-price');
+const checkoutBtn = document.getElementById('checkout-button');
 
-                cart.push({ name, price });
-                renderCart();
-            });
+// Only run if order section exists
+if (orderItemsDiv && totalPriceEl && checkoutBtn) {
+    // Get all "Order now" buttons
+    const orderButtons = document.querySelectorAll('.add.order');
+
+    // Add click event to each order button
+    orderButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const menuItem = button.closest('.menu-item');
+            if (!menuItem) return;
+
+            // Get item name and price
+            const nameEl = menuItem.querySelector('h3');
+            const priceEl = menuItem.querySelector('.price');
+
+            if (!nameEl || !priceEl) return;
+
+            const name = nameEl.innerText.trim();
+            const price = parseFloat(priceEl.innerText.replace('$', '').trim());
+
+            // Add to order (or increase quantity if exists)
+            const existingItem = order.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                order.push({ name, price, quantity: 1 });
+            }
+
+            // Update display
+            displayOrder();
         });
+    });
 
-        function renderCart() {
-            cartList.innerHTML = '';
-            let total = 0;
-
-            cart.forEach((product, index) => {
-                total += product.price;
-
-                const li = document.createElement('li');
-                li.textContent = `${product.name} - $${product.price.toFixed(2)}`;
-
-                const removeBtn = document.createElement('button');
-                removeBtn.textContent = 'Remove';
-                removeBtn.style.marginLeft = '10px';
-                removeBtn.onclick = () => {
-                    cart.splice(index, 1);
-                    renderCart();
-                };
-
-                li.appendChild(removeBtn);
-                cartList.appendChild(li);
-            });
-
-            const totalLi = document.createElement('li');
-            totalLi.textContent = `Total: $${total.toFixed(2)}`;
-            totalLi.style.fontWeight = 'bold';
-            cartList.appendChild(totalLi);
+    // Checkout button
+    checkoutBtn.addEventListener('click', () => {
+        if (order.length === 0) {
+            alert('Your order is empty!');
+            return;
         }
+
+        const total = calculateTotal();
+        if (confirm(`Complete your order?\nTotal: $${total.toFixed(2)}`)) {
+            alert(`✓ Order placed!\nTotal: $${total.toFixed(2)}`);
+            order = [];
+            displayOrder();
+        }
+    });
+}
+
+// Display order items
+function displayOrder() {
+    orderItemsDiv.innerHTML = '';
+
+    if (order.length === 0) {
+        orderItemsDiv.innerHTML = '<p style="color: #999; text-align: center;">Your order is empty</p>';
+        totalPriceEl.textContent = 'Total: $0.00';
+        return;
     }
-    // #endregion
+
+    // Create order list
+    const ul = document.createElement('ul');
+    ul.style.listStyle = 'none';
+    ul.style.padding = '0';
+
+    order.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+
+        const li = document.createElement('li');
+        li.style.padding = '10px';
+        li.style.marginBottom = '8px';
+        li.style.background = '#f5f5f5';
+        li.style.borderRadius = '6px';
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
+        li.style.alignItems = 'center';
+
+        // Item info
+        const info = document.createElement('span');
+        info.textContent = `${item.name} - $${item.price} x${item.quantity} = $${itemTotal.toFixed(2)}`;
+
+        // Remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.style.background = '#ff6b6b';
+        removeBtn.style.color = 'white';
+        removeBtn.style.border = 'none';
+        removeBtn.style.padding = '5px 10px';
+        removeBtn.style.borderRadius = '4px';
+        removeBtn.style.cursor = 'pointer';
+        removeBtn.style.fontSize = '12px';
+        removeBtn.onclick = () => {
+            order.splice(index, 1);
+            displayOrder();
+        };
+
+        li.appendChild(info);
+        li.appendChild(removeBtn);
+        ul.appendChild(li);
+    });
+
+    orderItemsDiv.appendChild(ul);
+
+    // Update total
+    const total = calculateTotal();
+    totalPriceEl.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Calculate total price
+function calculateTotal() {
+    return order.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
+
 
     // #region: Page 3 (Sherrien) - Interactive UI & Multilingual Support
     const navToggle = document.getElementById("nav-toggle");
