@@ -54,6 +54,10 @@
             opacity: 0.8;
         }
 
+        nav a.active {
+            color: #ff6b6b;
+        }
+
         .hero {
     
     background: 
@@ -376,7 +380,7 @@
 .title{
     text-align: center;
     margin: 20px;
-    font-size: 32px;
+    font-siez: 32px;
     color: bisque;}
     #gallery .img-gallery{
         display: flex;
@@ -397,4 +401,3 @@
         transform: scale(1.05);
         opacity: 1;
      }
-

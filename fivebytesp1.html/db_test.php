@@ -3,10 +3,10 @@
 // Edit the DB credentials below to match your MySQL setup, or set them via environment variables.
 
 // Credentials (change these to your real values)
-define('DB_HOST', 'localhost');
+define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'FiveDB');
-define('DB_USER', 'your_db_user');
-define('DB_PASS', 'your_strong_password');
+define('DB_USER', 'root'); // Or your actual database username
+define('DB_PASS', 'your_actual_password'); // Replace with your actual password
 
 $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
 $options = [
@@ -45,4 +45,3 @@ if (php_sapi_name() === 'cli') {
 }
 
 ?>
-
