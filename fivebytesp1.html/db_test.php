@@ -1,27 +1,18 @@
 <?php
-// Simple database connection tester using PDO
-// Edit the DB credentials below to match your MySQL setup, or set them via environment variables.
+// Simple database connection tester using the shared db_connect.php
+// This script will test the connection defined in db_connect.php
 
-// Credentials (change these to your real values)
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'FiveDB');
-define('DB_USER', 'root'); // Or your actual database username
-define('DB_PASS', 'your_actual_password'); // Replace with your actual password
-
-$dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+// The require_once will handle the connection and exit on failure.
+require_once 'db_connect.php';
 
 header('Content-Type: text/html; charset=utf-8');
 echo '<!doctype html><html><head><meta charset="utf-8"><title>DB Test</title></head><body><pre>';
 
-try {
-    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-    echo "Connected to database successfully.\n";
+// If we reached this point, the connection in db_connect.php was successful.
+echo "Connected to database successfully via db_connect.php.
+";
 
+try {
     // Show current database
     $stmt = $pdo->query('SELECT DATABASE() AS db');
     $row = $stmt->fetch();
@@ -32,16 +23,9 @@ try {
     $r = $stmt->fetch();
     echo 'Test query result: ' . ($r['ok'] ?? 'no result') . "\n";
 } catch (PDOException $e) {
-    echo "Connection failed: " . htmlspecialchars($e->getMessage()) . "\n";
-    echo "DSN used: " . htmlspecialchars($dsn) . "\n";
-    echo "Make sure the credentials in this file or in `back.php` are correct and MySQL is running.\n";
+    // This part should ideally not be reached if db_connect handles the exit.
+    echo "An error occurred after the initial connection: " . htmlspecialchars($e->getMessage()) . "\n";
 }
 
 echo '</pre></body></html>';
-
-// Also allow running from CLI: prints same messages without HTML
-if (php_sapi_name() === 'cli') {
-    // If run in CLI, output already printed; no further action needed.
-}
-
 ?>
