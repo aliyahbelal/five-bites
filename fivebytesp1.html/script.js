@@ -54,6 +54,8 @@ if (orderItemsDiv && totalPriceEl && checkoutBtn) {
             displayOrder();
         }
     });
+
+    
 }
 
 // Display order items

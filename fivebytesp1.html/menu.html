@@ -43,28 +43,28 @@
         <div class="burgers-menu" id="burgers">
             <h2>Burgers</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" data-id="1">
                         <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop" alt="Meat Burger">
                         <h3>Meat Burger</h3>
                         <p>Juicy beef patty with fresh veggies and sauce.</p>
                         <p class="price">$8.99</p>
                         <button class="add order">Order now</button>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-id="2">
                         <img src="chicken.jpeg" alt="Chicken Burger">
                         <h3>Chicken Burger</h3>
                         <p>Grilled chicken breast with lettuce and mayo.</p>
                         <p class="price">$7.99</p>
                         <button class="add order">Order now</button>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-id="3">
                         <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop" alt="Cheese Burger">
                         <h3>Cheese Burger</h3>
                         <p>Classic beef burger topped with melted cheese.</p>
                         <p class="price">$9.49</p>
                         <button class="add order">Order now</button>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-id="4">
                         <img src="combo.jpg" alt="Combo Burger">
                         <h3>Combo Burger</h3>
                         <p>A mix of beef and chicken patties with double cheese.</p>
@@ -77,7 +77,7 @@
         <div class="toppings-menu" id="toppings">
             <h2>Toppings</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" data-id="5">
                         <img src="friedfries.jpg" alt="Fried Fries">
                         <h3>Fried Fries</h3>
                         <p>Crispy golden fries served hot.</p>
@@ -182,6 +182,19 @@
 
         </section>
     </main>
+
+    <div id="order-confirmation" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-confirmation">&times;</span>
+            <h2>Thank You for Your Order!</h2>
+            <p>Your order has been placed successfully. We are preparing your delicious food!</p>
+            <button id="close-modal-button">Close</button>
+        </div>
+
+    </div>
+
+
+
     
     <!-- Main Content: Checkout Form -->
     <main class="container-padding">

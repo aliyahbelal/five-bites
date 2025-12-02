@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"php.executablePath": "C:\\tools\\php85\\php.exe",
+		"php.version": "php8.5"
+	}
+}

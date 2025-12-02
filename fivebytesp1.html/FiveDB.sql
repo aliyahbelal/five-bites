@@ -1,3 +1,1 @@
-SELECT * FROM menuitem ;
-SELECT * FROM orders ;
-SELECT * FROM customer;
+SELECT * FROM orders ORDER BY orders_ID ;
