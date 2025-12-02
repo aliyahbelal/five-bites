@@ -36,4 +36,5 @@ try {
     // Stop the script if the connection fails.
     exit;
 }
-?>
+?># .env file
+DB_HOST=
